@@ -121,4 +121,4 @@ Structure du dépôt:
 | `demo.py`                        |  Code     | Code de démonstration de détection d'émotion avec le model définit.                                                                                        |
 
 
-Fait avec ❤️ par [Guidon Antoine]
+Fait avec [Guidon Antoine]
