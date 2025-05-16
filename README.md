@@ -1,64 +1,90 @@
-# Projet de reconnaissance d'expressions faciales — Installation de l'environnement
+#  Reconnaissance d’Émotions Faciales avec DenseNet121
 
-Ce projet utilise **PyTorch** pour entraîner un modèle de Deep Learning (ex : DenseNet121) à reconnaître les expressions faciales.  
-Ce guide vous accompagne pour installer l'environnement Python, y compris l'accélération GPU via **CUDA** si vous avez une carte NVIDIA.
-
----
-
-##  Prérequis
-
-- Python **3.8 à 3.12** recommandé
-- pip
-- Une carte graphique NVIDIA (optionnelle, mais recommandée pour l'accélération CUDA)
-- Linux, Windows ou WSL
+Ce projet implémente un système de reconnaissance d’expressions faciales (angry, happy, neutral, sad) basé sur un modèle **DenseNet121** fine-tuné, destiné à être utilisé notamment avec un robot Furhat.
 
 ---
 
-##  1. Créer un environnement virtuel (fortement recommandé)
+##  Objectif du projet
 
-### Linux / Mac :
+- Charger une image faciale
+- Prédire son expression
+- Intégrer les résultats dans un système interactif (robot, interface, etc.)
 
+---
+
+##  Modèle utilisé : DenseNet121
+
+- **Base** : pré-entraîné sur ImageNet
+- **Fine-tuning** : uniquement à partir du bloc `denseblock3`
+- **Sortie personnalisée** : 4 classes (`angry`, `happy`, `neutral`, `sad`)
+
+#  INSTALLATION DE L'ENVIRONNEMENT
+
+Ce projet repose sur **PyTorch**, **Torchvision**, et d’autres librairies Python.  
+Tu peux l’installer rapidement de deux façons : avec `uv` (recommandé) ou manuellement avec `venv` + `pip`.
+
+---
+
+##  OPTION 1 – Installation Rapide avec `uv` (recommandé ⚡)
+
+[`uv`](https://github.com/astral-sh/uv) est un gestionnaire moderne de paquets Python ultra-rapide, compatible `pip`.
+
+###  Étape 1 : Installer `uv`
+
+####  Linux / macOS :
 ```bash```
-python3 -m venv env
-source env/bin/activate
+curl -Ls https://astral.sh/uv/install.sh | sh
 
-Windows
+ macOS avec Homebrew :
+ ```bash``` brew install astral-sh/uv/uv
+### Étape 2 : Créer un environnement virtuel et l’activer
+```bash```
+  uv venv
+  source .venv/bin/activate        # Linux / macOS
+  .venv\Scripts\activate           # Windows
+### Étape 3 : Installer les dépendances CPU
+```bash```
+  uv pip install -r requirements.txt
+### Étape 4 (optionnelle) : Installer PyTorch avec support CUDA
+  Si tu as une carte graphique NVIDIA, installe la version adaptée :
+
+CUDA 12.1
+      ```bash```
+uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+CUDA 11.8
+```bash```
+uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+
+## OPTION 2 – Installation Manuelle avec python -m venv + pip
+### Étape 1 : Créer un environnement virtuel
+```bash```
 python -m venv env
-.\env\Scripts\activate
-
-# 2. Mettre pip à jour
+source env/bin/activate         # Linux / macOS
+env\Scripts\activate            # Windows
+### Étape 2 : Mettre pip à jour
+```bash``` pip install --upgrade pip
+### Étape 3 : Installer les dépendances CPU
 ```bash```
-Copier
-Modifier
-
-# 3. Installation de PyTorch (CPU ou GPU)
-  ➤ A. Détecter si vous avez une carte NVIDIA
-    ```bash```
-      nvidia-smi
-
-  ✅ Si une table s'affiche avec le nom de la carte graphique : vous avez une carte NVIDIA compatible CUDA.
+  pip install -r requirements.txt
   
-  ❌ Sinon, passez à l'installation CPU (voir plus bas).
+### Étape 4 (optionnelle) : Installer PyTorch avec CUDA
+Visite : https://pytorch.org/get-started/locally/
+Ou installe directement :
+
+  CUDA 12.1
+```bash```
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+CUDA 11.8
 
 
-  ➤ B. Trouver votre version de CUDA (si installée)
-    nvcc --version
-    ou
-    cat /usr/local/cuda/version.txt
-  Cela vous donne une version comme : release 11.8 → à noter.
 
-  ➤ C. Installer PyTorch avec pip
-    Exemple CUDA 12.1 :
-      pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
-# 5. Installer les dépendances du projet
-  bash : pip install -r requirements.txt
 
-# 6. Entraînement et exécution
-  Vous pouvez maintenant :
-    Entraîner votre modèle avec train.py
-    Tester la détection avec detection_camera_densenet_ft.py
-    Connecter au robot Furhat (voir la section dédiée si besoin)
+
+
+
 
 
 
