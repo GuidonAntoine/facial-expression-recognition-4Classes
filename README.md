@@ -28,4 +28,4 @@ Structure du dépôt:
 | `DenseNet_4classe.ipynb`         |  Notebook | Implémentation complète du pipeline : chargement du dataset, entraînement de DenseNet121, évaluation. C’est le notebook principal du projet.               |
 | `finetuning_modele_donnee.ipynb` |  Notebook | Permet de recharger un modèle existant et de le **fine-tuner** sur de nouvelles données personnalisées (capturées dans `captured_faces_finetunning/`).     |
 | `fine_tuned_model_data_final.pth`|  Archive  | Archive contenant un modèle déjà fine-tuné, directement utilisable pour tester les prédictions sans passer par un nouvel entraînement.                     |
-| 'demo.py'                        |  Code     | Code de démonstration de détection d'émotion avec le model définit.                                                                                        |
+| `demo.py`                        |  Code     | Code de démonstration de détection d'émotion avec le model définit.                                                                                        |
