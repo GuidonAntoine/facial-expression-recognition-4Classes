@@ -1,0 +1,11 @@
+[project]
+name = "facial-expression-recognition-4classes"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "albumentations>=2.0.7",
+    "numpy>=2.2.5",
+    "opencv-python>=4.11.0.86",
+]
