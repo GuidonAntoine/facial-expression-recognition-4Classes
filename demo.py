@@ -7,7 +7,7 @@ import torch.nn as nn
 
 # === PARAMÈTRES ===
 CLASSES = ['angry', 'fear', 'happy', 'sad']
-MODEL_PATH = 'TEST_final/fine_tuned_model_data_final.pth'  # adapter au besoin
+MODEL_PATH = 'fine_tuned_model_data_final.pth'  # adapter au besoin
 
 # === CHARGEMENT DU MODÈLE ===
 model = models.densenet121(pretrained=False)
