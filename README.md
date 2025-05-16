@@ -36,9 +36,9 @@ Modifier
     ```bash```
       nvidia-smi
 
-✅ Si une table s'affiche avec le nom de la carte graphique : vous avez une carte NVIDIA compatible CUDA.
-
-❌ Sinon, passez à l'installation CPU (voir plus bas).
+  ✅ Si une table s'affiche avec le nom de la carte graphique : vous avez une carte NVIDIA compatible CUDA.
+  
+  ❌ Sinon, passez à l'installation CPU (voir plus bas).
 
 
   ➤ B. Trouver votre version de CUDA (si installée)
