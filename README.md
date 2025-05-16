@@ -120,5 +120,5 @@ Structure du dépôt:
 | `fine_tuned_model_data_final.pth`|  Archive  | Archive contenant un modèle déjà fine-tuné, directement utilisable pour tester les prédictions sans passer par un nouvel entraînement.                     |
 | `demo.py`                        |  Code     | Code de démonstration de détection d'émotion avec le model définit.                                                                                        |
 
-
+Certains programme nécessite des datasets non présent. Remplacer par vos DataSet
 
